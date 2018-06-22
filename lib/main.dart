@@ -52,33 +52,33 @@ class MyApp extends StatelessWidget {
           new Container(
             margin: const EdgeInsets.only(top: 8.0),
             child: new Text(
-                label,
-                style: new TextStyle(
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w400,
-                  color: color,
-                ),
+              label,
+              style: new TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+                color: color,
               ),
             ),
-          ],
-        );
-      }
-
-      Widget buttonSection = new Container(
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            buildButtonColumn(Icons.call, 'CALL'),
-            buildButtonColumn(Icons.near_me, 'ROUTE'),
-            buildButtonColumn(Icons.share, 'Share'),
-          ],
-        ),
+          ),
+        ],
       );
+    }
+
+    Widget buttonSection = new Container(
+      child: new Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          buildButtonColumn(Icons.call, 'CALL'),
+          buildButtonColumn(Icons.near_me, 'ROUTE'),
+          buildButtonColumn(Icons.share, 'Share'),
+        ],
+      ),
+    );
 
     Widget textSection = new Container(
       padding: const EdgeInsets.all(32.0),
       child: new Text(
-          '''
+        '''
         Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. 
         Situated 1,578 meters above sea level, 
         it is one of the larger Alpine Lakes. 
@@ -92,12 +92,21 @@ class MyApp extends StatelessWidget {
         softWrap: true,
       ),
     );
-    
+
     return new MaterialApp(
       title: 'Flutter Demo',
+      body: new ListView(
+        children: [
+          new Image.asset(
+            'image/lake.jpg',
+            height: 240.0,
+            fit: BoxFit.cover,
+          )
+        ],
+      )
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      primarySwatch: Colors.blue,
+    ),
     );
   }
 }
